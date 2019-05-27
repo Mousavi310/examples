@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+  prometheus:
+    network_mode: host
+    ports:
+      - 9090:9090
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./first.rules:/etc/prometheus/first.rules
+
+  alertmanager:
+    network_mode: host
+    ports:
+      - 9093:9093
+    image: prom/alertmanager
+    volumes:
+      - ./alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+
+    
+

@@ -1,0 +1,10 @@
+groups:
+- name: my-group-name
+  rules:
+  - alert: InstanceDown
+    expr: up == 0
+    labels:
+      severity: critical
+    annotations:
+      summary: "Instance {{ $labels.instance }} down"
+      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."

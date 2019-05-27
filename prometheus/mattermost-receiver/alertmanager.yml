@@ -1,0 +1,10 @@
+route:
+  group_by: [Alertname]
+  # Send all notifications to me.
+  receiver: mattermost
+
+receivers:
+  - name: mattermost
+    slack_configs:
+    - api_url: http://localhost:8065/hooks/gaa989rhftfmtm4dcp7f9rixfe
+      text: 'this is simple test `mohammad` ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")'
